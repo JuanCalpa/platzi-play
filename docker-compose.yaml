@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: platzi-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: platzi_play_db
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: user.platzi
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
